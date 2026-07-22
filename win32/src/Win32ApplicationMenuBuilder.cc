@@ -524,6 +524,8 @@ Win32ApplicationMenuBuilder::createHelpMenu(MainMenuBarHandle mainMenu)
     m_helpMenu = createMenuBar(kMenuItemTypeHelpTitle);
     setParentMenu(helpMenu, m_helpMenu);
     appendMenuItem(m_helpMenu, kMenuItemTypeHelpOnline);
+    appendMenuItem(m_helpMenu, kMenuItemTypeHelpUpdate);
+    appendMenuItem(m_helpMenu, kMenuItemTypeHelpHomepage);
     appendMenuSeparator(m_helpMenu);
     appendMenuItem(m_helpMenu, kMenuItemTypeHelpAbout);
 }

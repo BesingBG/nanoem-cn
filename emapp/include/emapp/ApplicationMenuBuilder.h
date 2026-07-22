@@ -217,6 +217,8 @@ public:
         kMenuItemTypeWindowFullscreen,
         kMenuItemTypeHelpTitle,
         kMenuItemTypeHelpOnline,
+        kMenuItemTypeHelpUpdate,
+        kMenuItemTypeHelpHomepage,
         kMenuItemTypeHelpAbout,
         kMenuItemTypeModelPluginExecute,
         kMenuItemTypeMotionPluginExecute,

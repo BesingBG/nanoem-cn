@@ -557,6 +557,12 @@ ApplicationMenuBuilder::menuItemString(MenuItemType type) NANOEM_DECL_NOEXCEPT
     case kMenuItemTypeHelpOnline:
         text = "nanoem.menu.help.online";
         break;
+    case kMenuItemTypeHelpUpdate:
+        text = "nanoem.menu.help.update";
+        break;
+    case kMenuItemTypeHelpHomepage:
+        text = "nanoem.menu.help.homepage";
+        break;
     case kMenuItemTypeHelpAbout:
         text = "nanoem.menu.help.about";
         break;

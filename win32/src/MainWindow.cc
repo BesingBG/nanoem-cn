@@ -1993,6 +1993,12 @@ MainWindow::handleMenuItem(HWND hwnd, ApplicationMenuBuilder::MenuItemType menuT
         ShellExecuteA(nullptr, nullptr, path, nullptr, nullptr, SW_SHOW);
         break;
     }
+    case ApplicationMenuBuilder::kMenuItemTypeHelpUpdate:
+        ShellExecuteA(nullptr, nullptr, "https://github.com/BesingBG/nano-mmd/releases", nullptr, nullptr, SW_SHOW);
+        break;
+    case ApplicationMenuBuilder::kMenuItemTypeHelpHomepage:
+        ShellExecuteA(nullptr, nullptr, "https://github.com/BesingBG/nano-mmd", nullptr, nullptr, SW_SHOW);
+        break;
     default:
         m_menuBuilder->dispatch(menuType);
         break;

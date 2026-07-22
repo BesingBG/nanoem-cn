@@ -4899,6 +4899,18 @@
     ja_JP: 'オンラインヘルプ(&O)'
     zh_CN: '&使用手册'
   description: ''
+- key: nanoem.menu.help.update
+  phrase:
+    en_US: '&Check for Updates'
+    ja_JP: '更新を確認(&U)'
+    zh_CN: '检查更新(&U)'
+  description: ''
+- key: nanoem.menu.help.homepage
+  phrase:
+    en_US: '&Homepage'
+    ja_JP: 'ホームページ(&H)'
+    zh_CN: '项目主页(&H)'
+  description: ''
 - key: nanoem.menu.help.about
   phrase:
     en_US: '&About'

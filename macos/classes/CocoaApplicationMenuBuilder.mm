@@ -896,6 +896,23 @@ CocoaApplicationMenuBuilder::createHelpMenu(NSMenu *bar, NSApplication *app)
                           [[NSWorkspace sharedWorkspace] openURL:location];
                       }
                   }];
+    translated = stripMnemonic(buffer, sizeof(buffer), m_translator->translate("nanoem.menu.help.update"));
+    title = [[NSString alloc] initWithUTF8String:translated];
+    [m_helpMenu
+        addItemWithTitle:title
+                  action:^() {
+                      NSURL *location = [NSURL URLWithString:@"https://github.com/BesingBG/nano-mmd/releases"];
+                      [[NSWorkspace sharedWorkspace] openURL:location];
+                  }];
+    translated = stripMnemonic(buffer, sizeof(buffer), m_translator->translate("nanoem.menu.help.homepage"));
+    title = [[NSString alloc] initWithUTF8String:translated];
+    [m_helpMenu
+        addItemWithTitle:title
+                  action:^() {
+                      NSURL *location = [NSURL URLWithString:@"https://github.com/BesingBG/nano-mmd"];
+                      [[NSWorkspace sharedWorkspace] openURL:location];
+                  }];
+    [m_helpMenu addSeparator];
     [m_helpMenu addItemWithTitle:[[NSString alloc] initWithFormat:NSLocalizedString(@"%@ Help", nil), appName]
                           action:^() {
                               NSApplication *app = [NSApplication sharedApplication];

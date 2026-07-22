@@ -1,5 +1,5 @@
 
-��F
+��F
 nanoem.gui.unimplemented*Currently Unavailable due to unimplemented
 nanoem.gui.cameraCamera 
 nanoem.gui.keyframe.copyCopy
@@ -965,7 +965,9 @@ $nanoem.menu.accessory.enable.visibleEnable &Visible$
 nanoem.menu.window.fullscreen
 Fullscreen#
 nanoem.menu.window.title&Window'
-nanoem.menu.help.online&Online Help 
+nanoem.menu.help.online&Online Help-
+nanoem.menu.help.update&Check for Updates&
+nanoem.menu.help.homepage	&Homepage 
 nanoem.menu.help.about&About
 nanoem.menu.help.title&Help$
 nanoem.menu.edit.bone.title&Bone'
@@ -1215,7 +1217,7 @@ Ananoem.status.ERROR_DOCUMENT_MODEL_OUTSIDE_PARENT_STATE_NOT_FOUND'Model outsid
 ;nanoem.status.ERROR_DOCUMENT_MODEL_OUTSIDE_PARENT_CORRUPTED%The model outside parent is corruptedS
 2nanoem.status.ERROR_DOCUMENT_SELF_SHADOW_CORRUPTEDSelf shadow data is corruptedd
 ;nanoem.status.ERROR_DOCUMENT_SELF_SHADOW_KEYFRAME_CORRUPTED%The self shadow keyframe is corrupted
-��@
+��@
 nanoem.gui.unimplemented$未実装のため現在利用不可
 nanoem.gui.camera	カメラ%
 nanoem.gui.keyframe.copy	コピー'
@@ -2160,7 +2162,9 @@ $nanoem.menu.accessory.enable.visible表示を有効にする(&V)+
 nanoem.menu.window.restore復元?
 nanoem.menu.window.fullscreenフルスクリーンにする/
 nanoem.menu.window.titleウィンドウ(&W)7
-nanoem.menu.help.onlineオンラインヘルプ(&O)1
+nanoem.menu.help.onlineオンラインヘルプ(&O).
+nanoem.menu.help.update更新を確認(&U)3
+nanoem.menu.help.homepageホームページ(&H)1
 nanoem.menu.help.aboutnanoem について(&A)'
 nanoem.menu.help.titleヘルプ(&H),
 nanoem.menu.edit.bone.titleボーン(&B)*
@@ -2409,7 +2413,7 @@ Ananoem.status.ERROR_DOCUMENT_MODEL_OUTSIDE_PARENT_STATE_NOT_FOUND3モーフの
 ;nanoem.status.ERROR_DOCUMENT_MODEL_OUTSIDE_PARENT_CORRUPTED-モデルの外部親が破損していますl
 2nanoem.status.ERROR_DOCUMENT_SELF_SHADOW_CORRUPTED6セルフシャドウデータが破損しています�
 ;nanoem.status.ERROR_DOCUMENT_SELF_SHADOW_KEYFRAME_CORRUPTEDBセルフシャドウのキーフレームが破損しています
-��7
+��7
 nanoem.gui.unimplemented未实现，当前不可用
 nanoem.gui.camera相机"
 nanoem.gui.keyframe.copy复制!
@@ -3353,7 +3357,9 @@ $nanoem.menu.accessory.enable.visible启用&可见%
 nanoem.menu.window.restore恢复'
 nanoem.menu.window.fullscreen全屏#
 nanoem.menu.window.title&窗口(
-nanoem.menu.help.online&使用手册!
+nanoem.menu.help.online&使用手册+
+nanoem.menu.help.update检查更新(&U)-
+nanoem.menu.help.homepage项目主页(&H)!
 nanoem.menu.help.about&关于!
 nanoem.menu.help.title&帮助&
 nanoem.menu.edit.bone.title&骨骼'
