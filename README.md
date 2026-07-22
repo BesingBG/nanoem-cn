@@ -1,14 +1,14 @@
-# nano-mmd 
+# nanoem-cn
 
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-blue.svg)](https://opensource.org/licenses/MPL-2.0)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Windows-lightgrey)
 
-**nano-mmd** 是 [nanoem](https://github.com/hkrn/nanoem) 的社区维护中文分支，提供完整的简体中文界面与文档。
+**nanoem-cn** 是 [nanoem](https://github.com/hkrn/nanoem) 的社区维护中文分支，提供完整的简体中文界面与文档。
 
 nanoem 是一款跨平台的开源 [MMD（MikuMikuDance）](https://sites.google.com/view/vpvp/) 兼容软件，原生支持 macOS，也可运行于 Windows，支持编辑和播放 VMD/PMX/PMD 格式的模型动画。
 
-> 🌐 **English**: nanoem-mmd is a community-maintained Chinese fork of [nanoem](https://github.com/hkrn/nanoem), a cross-platform open-source [MMD (MikuMikuDance)](https://sites.google.com/view/vpvp/) compatible application. It features a fully translated Chinese UI and documentation.
+> 🌐 **English**: nanoem-cn is a community-maintained Chinese fork of [nanoem](https://github.com/hkrn/nanoem), a cross-platform open-source [MMD (MikuMikuDance)](https://sites.google.com/view/vpvp/) compatible application. It features a fully translated Chinese UI and documentation.
 
 ## 特性
 
@@ -40,11 +40,11 @@ nanoem 是一款跨平台的开源 [MMD（MikuMikuDance）](https://sites.google
 
 ## 截图
 
-![nano-mmd for macOS](docs/images/application/screen_chinese.png)
+![nanoem-cn for macOS](docs/images/application/screen_chinese.png)
 
 ## 下载
 
-请前往 [Releases](https://github.com/BesingBG/nanoem-mmd/releases) 页面下载最新版本。
+请前往 [Releases](https://github.com/BesingBG/nanoem-cn/releases) 页面下载最新版本。
 
 ## 构建
 
