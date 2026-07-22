@@ -105,6 +105,10 @@ Preference::save()
     set(sectionIndex, kDefaultColorPixelFormatNameKey, uint32_t(m_preference.defaultColorPixelFormat()));
     set(sectionIndex, kEnableSkinDeformAcceleratorKey, m_preference.isSkinDeformAcceleratorEnabled());
     set(sectionIndex, kHighDPIViewportModeKey, uint32_t(m_preference.highDPIViewportMode()));
+    int language = m_preference.language();
+    if (language >= 0) {
+        set(sectionIndex, "language", static_cast<uint32_t>(language));
+    }
     if (m_preference.isResettingAnalyticsUUIDRequired()) {
         remove(sectionIndex, kClientUUIDKey);
     }
@@ -185,6 +189,14 @@ Preference::fillLoadedParameters()
         static_cast<ApplicationPreference::HighDPIViewportModeType>(get(sectionIndex, kHighDPIViewportModeKey, 0u)));
     m_preference.setDefaultColorPixelFormat(
         static_cast<sg_pixel_format>(get(sectionIndex, kDefaultColorPixelFormatNameKey, 0u)));
+    int savedLanguage = static_cast<int>(get(sectionIndex, "language", uint32_t(-1)));
+    if (savedLanguage >= ITranslator::kLanguageTypeFirstEnum &&
+        savedLanguage < ITranslator::kLanguageTypeMaxEnum) {
+        m_preference.setLanguage(savedLanguage);
+        if (ITranslator *translator = m_service->translator()) {
+            translator->setLanguage(static_cast<ITranslator::LanguageType>(savedLanguage));
+        }
+    }
 }
 
 void

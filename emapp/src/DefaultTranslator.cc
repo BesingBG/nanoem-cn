@@ -37,7 +37,8 @@ DefaultTranslator::loadFromMemory(const nanoem_u8_t *ptr, size_t length)
             const Nanoem__Translation__Unit *unit = bundle->units[i];
             const bool match =
                 (unit->language == NANOEM__COMMON__LANGUAGE__LC_JAPANESE && m_language == kLanguageTypeJapanese) ||
-                (unit->language == NANOEM__COMMON__LANGUAGE__LC_ENGLISH && m_language == kLanguageTypeEnglish);
+                (unit->language == NANOEM__COMMON__LANGUAGE__LC_ENGLISH && m_language == kLanguageTypeEnglish) ||
+                (unit->language == NANOEM__COMMON__LANGUAGE__LC_SIMPLIFIED_CHINESE && m_language == kLanguageTypeChineseSimplified);
             if (match) {
                 for (size_t j = 0, numPhrases = unit->n_phrases; j < numPhrases; j++) {
                     const Nanoem__Translation__Phrase *phrase = unit->phrases[j];
@@ -97,6 +98,7 @@ DefaultTranslator::isSupportedLanguage(LanguageType value) const NANOEM_DECL_NOE
     switch (value) {
     case kLanguageTypeJapanese:
     case kLanguageTypeEnglish:
+    case kLanguageTypeChineseSimplified:
         return true;
     default:
         return false;

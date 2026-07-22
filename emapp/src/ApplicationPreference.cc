@@ -34,6 +34,7 @@ static const char kGFXShaderPoolSize[] = "gfx.pool.shader";
 static const char kGFXPassPoolSize[] = "gfx.pool.pass";
 static const char kGFXPipelinePoolSize[] = "gfx.pool.pipeline";
 static const char kGFXUniformBufferSize[] = "gfx.buffer.uniform";
+static const char kLanguage[] = "language";
 static const int kBufferSize = 128;
 
 } /* namespace anonymous */
@@ -320,6 +321,18 @@ void
 ApplicationPreference::setEffectCacheEnabled(bool value)
 {
     writeBool(kEffectCacheEnabled, value);
+}
+
+int
+ApplicationPreference::language() const NANOEM_DECL_NOEXCEPT
+{
+    return readInt(kLanguage, -1);
+}
+
+void
+ApplicationPreference::setLanguage(int value)
+{
+    writeInt(kLanguage, value);
 }
 
 const char *

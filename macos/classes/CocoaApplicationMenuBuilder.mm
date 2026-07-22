@@ -17,6 +17,10 @@
 #include "emapp/ThreadedApplicationClient.h"
 #include "emapp/private/CommonInclude.h"
 
+#ifndef NSAppKitVersionNumber12_5
+#define NSAppKitVersionNumber12_5 2176
+#endif
+
 namespace nanoem {
 namespace macos {
 
@@ -886,12 +890,11 @@ CocoaApplicationMenuBuilder::createHelpMenu(NSMenu *bar, NSApplication *app)
     [m_helpMenu
         addItemWithTitle:title
                   action:^() {
-                      NSString *format = [NSString
-                          stringWithFormat:
-                              @"https://nanoem.readthedocs.io/ja/latest/?utm_source=nanoem-%s&utm_medium=referral",
-                          nanoemGetVersionString()];
-                      NSURL *location = [NSURL URLWithString:format];
-                      [[NSWorkspace sharedWorkspace] openURL:location];
+                      NSString *path = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"docs"];
+                      if (path) {
+                          NSURL *location = [NSURL fileURLWithPath:path];
+                          [[NSWorkspace sharedWorkspace] openURL:location];
+                      }
                   }];
     [m_helpMenu addItemWithTitle:[[NSString alloc] initWithFormat:NSLocalizedString(@"%@ Help", nil), appName]
                           action:^() {

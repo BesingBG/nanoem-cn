@@ -29,7 +29,7 @@ author = 'hkrn'
 version = '34.6'
 release = 'v34.6.0'
 
-language = 'ja'
+language = 'zh_CN'
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.venv']
 pygments_style = 'sphinx'
 todo_include_todos = False

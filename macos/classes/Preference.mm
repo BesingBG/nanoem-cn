@@ -74,6 +74,10 @@ Preference::~Preference()
     [m_defaults setInteger:m_preference.gfxPassPoolSize() forKey:kGFXPassPoolSizeKey];
     [m_defaults setInteger:m_preference.gfxPipelinePoolSize() forKey:kGFXPipelinePoolSizeKey];
     [m_defaults setInteger:m_preference.gfxUniformBufferSize() forKey:kGFXUniformBufferSizeKey];
+    int language = m_preference.language();
+    if (language >= 0) {
+        [m_defaults setInteger:language forKey:@"NMLanguage"];
+    }
     [m_defaults removeObjectForKey:kCompatClientUUIDKey];
     [m_defaults removeObjectForKey:kCompatEnableAnalyticsKey];
     [m_defaults removeObjectForKey:kCompatRendererNameKey];

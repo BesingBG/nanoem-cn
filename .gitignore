@@ -28,6 +28,12 @@
 /dependencies/optick
 /dependencies/yaml-cpp
 
+# macOS
+.DS_Store
+
+# backup
+README.md.bak
+
 # rust
 /rust/**/target
 /**/*.rs.bk

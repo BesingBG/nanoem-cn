@@ -1,31 +1,27 @@
 =======================================================
-nanoem のマニュアル
+nanoem 使用手册
 =======================================================
 
-.. important::
-   nanoem itself has English-ready UI however it's manual is not translated and there is no plan to translate it due to high maintenance cost.
-   If you want to read English manual, translate this manual with `Google Translate <https://translate.google.com/#ja/en/nanoem.readthedocs.io>`_ or `use translate webpages feature in Google Chrome <https://support.google.com/chrome/answer/173424>`_ (At least the minimum quality to understand this manual is gualantieed).
+nanoem 是 `MikuMikuDance <https://sites.google.com/view/vpvp/>`_（以下简称 MMD）的兼容实现应用程序，可以加载、编辑和保存 MMD 使用的模型和运动数据。
 
-nanoem は `MikuMikuDance <https://sites.google.com/view/vpvp/>`_ (以下 MMD) で使われるモデルやモーションの読み込み、及び編集と保存が可能な MMD 互換実装のアプリケーションです。
+nanoem 在保持与 MMD 兼容的同时，还以以下目标进行开发：
 
-nanoem では MMD との互換性をもつことと同時に以下を目標として開発しています。
+- 可移植性
 
-- 移植性
+  - 除主要目标的 macOS 外，还可在 Windows 上运行
+  - 虽然未公开发布，但也可在 Linux / Raspberry Pi / Windows 10 on ARM64 上运行 [#f1]_
 
-  - 主目標である macOS 以外に Windows で動作
-  - 未公開であるものの Linux / Raspberry Pi / Windows10 on ARM64 上でも動作 [#f1]_
+- 启动轻量
 
-- 立ち上がりが軽量であること
+  - 约 1 秒内启动 [#f2]_
 
-  - 1秒程度で立ち上がる [#f2]_
+- 体积小巧
 
-- サイズが小さいこと
-
-  - 10MB 程度 [#f3]_
+  - 约 10MB [#f3]_
 
 .. toctree::
    :maxdepth: 2
-   :caption: 目次
+   :caption: 目录
 
    install.rst
    guide.rst
@@ -44,6 +40,6 @@ nanoem では MMD との互換性をもつことと同時に以下を目標と�
    license.rst
    architecture.rst
 
-.. [#f1] もし必要な場合は :ref:`37420267-8E5A-41EA-A159-FFF490DF1D8D` でお問い合わせください
-.. [#f2] MMD と同じようにというのはありますがエディタ感覚で使えることを目標としています
-.. [#f3] macOS における圧縮時のサイズ。31.0 以降はユニバーサルバイナリ化のためおよそ倍のサイズになっています
+.. [#f1] 如有需要请通过 :ref:`37420267-8E5A-41EA-A159-FFF490DF1D8D` 联系
+.. [#f2] 虽然和 MMD 同样需要一定时间，但目标是能够像编辑器一样使用
+.. [#f3] macOS 下的压缩包大小。31.0 之后由于采用通用二进制，体积约为原来的两倍

@@ -41,7 +41,6 @@ main(int argc, char *argv[])
     ThreadedApplicationService::setup();
     @autoreleasepool {
         JSON_Value *config = json_value_init_object();
-        NSLocale *locale = [NSLocale currentLocale];
         JSON_Object *root = json_object(config);
         NSURL *url = [[NSFileManager defaultManager] URLForDirectory:NSApplicationSupportDirectory
                                                             inDomain:NSUserDomainMask
@@ -66,7 +65,7 @@ main(int argc, char *argv[])
                                                   attributes:attributes
                                                        error:&error];
         json_object_dotset_string(root, "project.home", NSHomeDirectory().UTF8String);
-        json_object_dotset_string(root, "project.locale", locale.localeIdentifier.UTF8String);
+        json_object_dotset_string(root, "project.locale", [[[NSLocale preferredLanguages] firstObject] UTF8String]);
         json_object_dotset_string(root, "project.tmp.path", tempDirectoryURL.path.UTF8String);
         json_object_dotset_string(root, "macos.redo.path", redoDirectoryURL.path.UTF8String);
         json_object_dotset_string(root, "macos.sentry.handler.path", sentryHandlerURL.path.UTF8String);
@@ -81,6 +80,9 @@ main(int argc, char *argv[])
             }
             if (command.hasArg("locale")) {
                 json_object_dotset_string(root, "project.locale", command.findOption("locale"));
+            }
+            if (NSNumber *savedLanguage = [[NSUserDefaults standardUserDefaults] objectForKey:@"NMLanguage"]) {
+                json_object_dotset_number(root, "application.preference.language", savedLanguage.intValue);
             }
             macos::CocoaThreadedApplicationService service(config);
             macos::Preference preference([NSUserDefaults standardUserDefaults], &service, config);

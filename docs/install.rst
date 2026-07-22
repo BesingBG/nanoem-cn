@@ -1,165 +1,165 @@
 =======================================================
-インストール
+安装
 =======================================================
 
-必要な動作環境
+所需运行环境
 =======================================================
 
 macOS 版
 -------------------------------------------------------
 
 .. important::
-   35.0 以降から Apple Silicon 版のみとし Intel Mac 版は廃止予定です
+    35.0 之后将仅提供 Apple Silicon 版，Intel Mac 版计划废除
 
-- macOS 11.0 以上かつ 64bit 環境 (31.0 から Apple Silicon 対応) [#f1]_
+- macOS 11.0 及以上且 64bit 环境（从 31.0 开始支持 Apple Silicon）[#f1]_
 
-  - `Metal が動作する環境 <https://support.apple.com/ja-jp/HT205073>`_ を確認してください
-  - `macOS 10.13.4 から外付け GPU に対応 <https://support.apple.com/ja-jp/HT208544>`_ していますが nanoem では動作未確認です
-  - macOS 11.0 未満であっても macOS 10.13 以上であれば動作しますが、その場合はサポート対象外です
+  - 请确认 `支持 Metal 的环境 <https://support.apple.com/zh-cn/HT205073>`_
+  - `macOS 10.13.4 开始支持外接 GPU <https://support.apple.com/zh-cn/HT208544>`_，但在 nanoem 中未经验证
+  - 即使低于 macOS 11.0，只要 macOS 10.13 及以上即可运行，但不属于支持范围
 
-    - 34.8.1 以前の場合は 10.9 以上であれば動かせますが主にハードウェア的な問題で満足に動かせない可能性が高いため同様にサポート対象外です
+    - 34.8.1 及之前的版本在 10.9 及以上即可运行，但可能因硬件问题无法流畅运行，同样不属于支持范围
 
-- 1280x800 以上の画面
+- 1280x800 以上分辨率
 
 Windows 版
 -------------------------------------------------------
 
 .. important::
-   Windows 版 nanoem は DirectX 11 上で動作します。そのため MMD や関連ツールで必要とする DirectX 9 ランタイムのインストールは不要です
+    Windows 版 nanoem 在 DirectX 11 上运行。因此无需安装 MMD 及相关工具所需的 DirectX 9 运行时。
 
-- Windows7 以上かつ 64bit 環境 [#f2]_
+- Windows7 及以上且 64bit 环境 [#f2]_
 
-  - `Visual Studio 2017 の Visual C++ 再頒布可能パッケージ <https://support.microsoft.com/ja-jp/help/2977003/the-latest-supported-visual-c-downloads>`_ のインストールが必要
+  - 需要安装 `Visual Studio 2017 的 Visual C++ 可再发行包 <https://support.microsoft.com/zh-cn/help/2977003/the-latest-supported-visual-c-downloads>`_
 
-- 1280x800 以上の画面
+- 1280x800 以上分辨率
 
 Linux 版
 -------------------------------------------------------
 
 .. caution::
-   リリースの配布物に含まれません。そのため `ソースコードからのビルド <https://github.com/hkrn/nanoem/>`_ のみに限られます
+    不包含在发布包中。因此仅限 `从源代码构建 <https://github.com/hkrn/nanoem/>`_
 
-- 64bit 環境
-- OpenGL 3.3 以上または OpenGL ES 3.0 以上
-- 1280x800 以上の画面
+- 64bit 环境
+- OpenGL 3.3 及以上或 OpenGL ES 3.0 及以上
+- 1280x800 以上分辨率
 
-Retina 含む高解像度環境について
-------------------------------------------------------
+关于 Retina 等高分屏环境
+-------------------------------------------------------
 
-nanoem は Retina のような高解像度環境に対応していますが、高解像度モードは負荷が大きいため重いと感じた場合
+nanoem 支持 Retina 等高分辨率环境，但高分辨率模式负载较大，如果感觉卡顿
 
-  - macOS 版は「`低解像度モード <https://support.apple.com/ja-jp/HT202471>`_」で開いてください。
-  - Windows 版はディスプレイ設定の拡大率 (DPI) を落として実行してください。
+  - macOS 版请使用「`低分辨率模式 <https://support.apple.com/zh-cn/HT202471>`_」打开。
+  - Windows 版请降低显示设置的缩放比例 (DPI) 后运行。
 
-利用条件
+使用条款
 =======================================================
 
-※この利用条件は予告なく変更されることがあります。
+※ 本使用条款可能随时更改，恕不另行通知。
 
-- nanoem を利用したことによって生じる一切の請求、損害、義務の責任を開発者及び開発貢献者は負わないものとする
+- 开发者及贡献者不对因使用 nanoem 而产生的任何索赔、损害或义务承担责任
 
-  - nanoem は `Mozilla Public License 2.0 <https://licenses.opensource.jp/MPL-2.0/MPL-2.0.html>`_ に基づく形で `ソースコードが公開 <https://github.com/hkrn/nanoem>`_ されています
+  - nanoem 的 `源代码 <https://github.com/hkrn/nanoem>`_ 以 `Mozilla Public License 2.0 <https://licenses.opensource.jp/MPL-2.0/MPL-2.0.html>`_ 形式公开
 
-- :doc:`privacy` に同意すること
-- （過去に再配布禁止規定があったものの現在は削除）
+- 同意 :doc:`privacy` 中的条款
+- （过去曾存在禁止再分发的规定，现已删除）
 
-ダウンロード方法
+下载方式
 =======================================================
 
 .. important::
-  * 事前に上記の「利用条件」に同意したものとみなします
-  * 今後ダウンロード方法が変更される可能性があります
-  * 古いバージョンからアップグレードする場合で巻き戻しをしたい場合は github から過去のバージョンをダウンロードしてください
+  * 视为已同意上述「使用条款」
+  * 下载方式今后可能会变更
+  * 从旧版本升级时如需回退，请从 GitHub 下载过往版本
 
-    * 過去に bowlroll で配布されたものと同じものです
+    * 与过去在 bowlroll 上分发的版本相同
 
-* github あるいは bowlroll いずれかからダウンロード（どちらも中身は同じです）
+* 从 github 或 bowlroll 任一下载（内容相同）
 
-  * github の場合は `Releases <https://github.com/hkrn/nanoem/releases>`_ からダウンロード
-  * bowlroll の場合は以下のリンクから `Download` ボタンを押す
+  * github 请从 `Releases <https://github.com/hkrn/nanoem/releases>`_ 页面下载
+  * bowlroll 请从以下链接点击 `Download` 按钮
 
-    * `macOS 版の配布ページ <https://bowlroll.net/file/71328>`_
-    * `Windows 版の配布ページ <https://bowlroll.net/file/122592>`_
+    * `macOS 版分发页 <https://bowlroll.net/file/71328>`_
+    * `Windows 版分发页 <https://bowlroll.net/file/122592>`_
 
-ダウンロード後の実行方法
+下载后的运行方法
 -------------------------------------------------------
 
-* zip ファイルを解凍
-* ``Applications`` フォルダに ``nanoem`` をドラッグ・アンド・ドロップ ※ macOS 版のみ
+* 解压 zip 文件
+* 将 ``nanoem`` 拖放到 ``Applications`` 文件夹 ※ 仅限 macOS 版
 
-  * 管理者権限が求めるダイアログが出ます
-  * もし自身が管理者ではない場合はホームフォルダの「アプリケーション」フォルダにドラッグ・アンド・ドロップしてください
+  * 会显示需要管理员权限的对话框
+  * 如果您不是管理员，请拖放到个人文件夹中的「应用程序」文件夹
 
-    * ホームフォルダに「アプリケーション」フォルダが存在しない場合は当該フォルダを作成してください
+    * 如果个人文件夹中不存在「应用程序」文件夹，请创建该文件夹
 
-* ``nanoem`` をクリックして起動
+* 点击 ``nanoem`` 启动
 
-  * 開かない場合は :ref:`0ACEC098-CB5E-40E2-99C5-01DB3BCBE080` にて
+  * 如果无法打开，请参考 :ref:`0ACEC098-CB5E-40E2-99C5-01DB3BCBE080`
 
 .. caution::
-  macOS 版において初回実行時に開発元未確認による警告ダイアログが出ますがこれは仕様です。詳細は「`Mac で App を安全に開く <https://support.apple.com/HT202491>`_」の「ノータリゼーションを受けていない App や未確認の開発元の App を開く方法」を確認してください。
+  macOS 版首次运行时会出现开发者未确认的警告对话框，这是正常现象。详情请查看「`在 Mac 上安全地打开 App <https://support.apple.com/zh-cn/HT202491>`_」的「如何打开未公证或来自未识别开发者的 App」。
 
-インストール後について
+安装后
 =======================================================
 
-ヘルプがほしいとき
+需要帮助时
 -------------------------------------------------------
 
-Twitter 上で `#nanoem互助会 <https://twitter.com/search?q=%23nanoem互助会>`_ タグをつけてツイートすると誰かが拾ってくれるかもしれません。
-ただし互助会タグは開発者が介入しない方針のため開発者に直接聞く場合は後述の不具合報告の方法に記載しているマシュマロを利用してください。
+在 Twitter 上添加 `#nanoem互助会 <https://twitter.com/search?q=%23nanoem互助会>`_ 标签发推，或许会有人帮忙。
+但互助会标签采用开发者不介入的方针，如需直接联系开发者，请使用后述问题反馈方法中的 marshmallow。
 
-Facebook とか LINE とかの場合は知ってそうな友達に聞くしかありません。
+Facebook 或 LINE 等平台只能询问可能知道的朋友了。
 
 .. _37420267-8E5A-41EA-A159-FFF490DF1D8D:
 
-不具合報告の方法
+问题反馈方式
 -------------------------------------------------------
 
 .. important::
-   「`マシュマロ <https://marshmallow-qa.com>`_」でのサポートも行っていましたが、2023年4月時点での Twitter の情勢の問題によりサポート対象から外しました。今後は GitHub を利用してください。
+    以前也通过「`Marshmallow <https://marshmallow-qa.com>`_」提供支持，但由于 2023年4月 Twitter 的形势问题，已将其移出支持范围。今后请使用 GitHub。
 
-まずは「:doc:`faq`」または「:doc:`trouble_shooting`」を確認してから「`GitHub の Discussions の Q/A ボード <https://github.com/hkrn/nanoem/discussions/categories/q-a>`_」で質問を行なってください。
+首先请确认「:doc:`faq`」或「:doc:`trouble_shooting`」，然后在「`GitHub Discussions 的 Q/A 板块 <https://github.com/hkrn/nanoem/discussions/categories/q-a>`_」中提问。
 
-* 要 GitHub アカウント
-* サービスの性質上英語表記ですが ``Discussions`` タブの方は日本語で質問投げても問題ありません
-* ``Issues`` タブの方は原則英語で回答対応のため、もし投げる場合は英語でお願いします
+* 需要 GitHub 账户
+* 由于服务性质，通常为英文，但 ``Discussions`` 标签页可以使用日文提问
+* ``Issues`` 标签页原则上用英文回复，如需提交请使用英文
 
-不具合報告時の注意
+问题反馈时的注意事项
 -------------------------------------------------------
 
-- 以下の内容であれば開発者的に調査しやすいです。これらは現象を再現するために必要なファイルをお願いすることがあります。
+- 以下内容有助于开发者调查。可能需要提供重现现象所需的文件。
 
-  - プロジェクトを保存したがそのファイルが読み込めない
-  - 画像または動画書き出ししようとしたが何回やっても落ちる
-  - アクセサリ/モデル/モーションを読み込もうとしたがエラーが出る
+  - 保存了项目但文件无法加载
+  - 尝试导出图像或视频时每次都崩溃
+  - 尝试加载附件/模型/运动时出错
 
 .. important::
-  以下の場合は不具合対応しません。
+    以下情况不处理问题：
 
-  * 物理演算有効時にモデルが貫通する系の問題
-  * macOS 10.9 (Mavericks) から 10.12 (Sierra) までの環境で動かしたときに発生する問題
-  * macOS における OpenGL :ref:`9816D13E-ADA9-44D9-A869-1F61537D7753` 使用時のエフェクト利用全般
+  * 启用物理模拟时模型穿透类问题
+  * 在 macOS 10.9 (Mavericks) 到 10.12 (Sierra) 环境中运行时发生的问题
+  * macOS 下使用 OpenGL :ref:`9816D13E-ADA9-44D9-A869-1F61537D7753` 时的效果使用相关问题
 
-    * エフェクトを利用する場合は Metal に切り替えてから利用してください
+    * 使用效果时请切换到 Metal 后再使用
 
-  またあくまでいちユーザとしての調査のため、モデルの配布制限が行われている場合は制限次第ですがモデルの調査ができないことがあります。
+  此外，仅以个人用户身份进行调查，如果模型存在分发限制，根据限制程度可能无法调查模型。
 
 .. warning::
-  - 内容が「開発者から見て」あまりに粗雑だと対応しません
+  - 如果内容「从开发者角度看」过于粗糙，将不予处理
 
-    - 例えば `なんかクラッシュするけど対応して` とか
+    - 例如「不知道为什么崩溃了，帮我处理一下」
 
-  - bowlroll のページにあるコメントを書いても返信しません
+  - 在 bowlroll 页面留言也不会回复
 
-スクリーンショットの撮り方
+截图方法
 -------------------------------------------------------
 
-文章での説明が難しいものはスクリーンショットをとってください。撮り方は以下があります。
+难以用文字说明的内容请截图。方法如下：
 
-- 画像の場合は `Mac でスクリーンショットを撮る方法 <https://support.apple.com/ja-jp/HT201361>`_
-- 動画の場合は `画面を収録する <https://support.apple.com/ja-jp/HT208721>`_
+- 图像请参考 `Mac 截图方法 <https://support.apple.com/zh-cn/HT201361>`_
+- 视频请参考 `录制屏幕 <https://support.apple.com/zh-cn/HT208721>`_
 
-  - `RetroClip <https://www.realartists.com/retroclip/>`_ を使うと Nintendo Switch のように後から画面収録することが出来ます
+  - 使用 `RetroClip <https://www.realartists.com/retroclip/>`_ 可以像 Nintendo Switch 一样事后录制屏幕
 
-.. [#f1] nanoem も例に漏れず MacBook において Intel 版よりも同サイズの Apple Silicon 版の方が明確に高い性能を発揮します。事実として高解像度モードでも重量級ポストエフェクトである `Ray-MMD <https://github.com/ray-cast/ray-mmd>`_ を 60FPS で動作させることができます
-.. [#f2] N/KN エディションを利用している場合は Windows のバージョンに応じた Media Feature Pack の追加インストールが必要です
+.. [#f1] nanoem 也不例外，在 MacBook 上，同尺寸的 Apple Silicon 版性能明显优于 Intel 版。事实上，即使在高分辨率模式下，也能以 60FPS 运行重量级后期效果 `Ray-MMD <https://github.com/ray-cast/ray-mmd>`_
+.. [#f2] 如果使用 N/KN 版本，需要根据 Windows 版本额外安装 Media Feature Pack

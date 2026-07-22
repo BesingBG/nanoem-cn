@@ -127,9 +127,18 @@ if(PANDOC_PATH)
   endif()
 endif()
 
+add_custom_command(TARGET ${NANOEM_EXECUTABLE_NAME} POST_BUILD
+                   COMMAND ${CMAKE_COMMAND} ARGS -E copy_if_different
+                       "${CMAKE_CURRENT_SOURCE_DIR}/Resources/${PROJECT_NAME}.icns"
+                       "$<TARGET_FILE_DIR:${NANOEM_EXECUTABLE_NAME}>/../Resources/${PROJECT_NAME}.icns")
+add_custom_command(TARGET ${NANOEM_EXECUTABLE_NAME} POST_BUILD
+                   COMMAND ${CMAKE_COMMAND} ARGS -E copy_directory
+                       "${PROJECT_SOURCE_DIR}/docs/_build/html"
+                       "$<TARGET_FILE_DIR:${NANOEM_EXECUTABLE_NAME}>/../Resources/docs")
 # installation
 install(TARGETS ${NANOEM_EXECUTABLE_NAME} BUNDLE DESTINATION . COMPONENT Runtime)
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Resources/ DESTINATION ./${PROJECT_NAME}.app/Contents/Resources COMPONENT Runtime)
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/docs/_build/html/ DESTINATION ./${PROJECT_NAME}.app/Contents/Resources/docs COMPONENT Runtime)
 if(NANOEM_ENABLE_TBB)
   get_filename_component(TBB_LIBRARY_DIR ${TBB_LIBRARY_RELEASE} DIRECTORY)
   list(APPEND LIBRARY_PATHS ${TBB_LIBRARY_DIR})

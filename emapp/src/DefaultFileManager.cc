@@ -8,6 +8,7 @@
 
 #include "emapp/Accessory.h"
 #include "emapp/Archiver.h"
+#include "emapp/ApplicationPreference.h"
 #include "emapp/BaseApplicationService.h"
 #include "emapp/BaseAudioPlayer.h"
 #include "emapp/Constants.h"
@@ -172,12 +173,22 @@ DefaultFileManager::DefaultFileManager(BaseApplicationService *applicationPtr)
     , m_effectPlugin(nullptr)
 {
     const JSON_Object *config = json_object(applicationPtr->applicationConfiguration());
-    const char *locale = json_object_dotget_string(config, "project.locale");
-    if (locale && StringUtils::equals(locale, "ja_JP", 5)) {
-        m_translator.setLanguage(ITranslator::kLanguageTypeJapanese);
+    ApplicationPreference savedPref(applicationPtr);
+    int savedLanguage = savedPref.language();
+    if (savedLanguage >= ITranslator::kLanguageTypeFirstEnum && savedLanguage < ITranslator::kLanguageTypeMaxEnum) {
+        m_translator.setLanguage(static_cast<ITranslator::LanguageType>(savedLanguage));
     }
     else {
-        m_translator.setLanguage(ITranslator::kLanguageTypeEnglish);
+        const char *locale = json_object_dotget_string(config, "project.locale");
+        if (locale && StringUtils::equals(locale, "ja_JP", 5)) {
+            m_translator.setLanguage(ITranslator::kLanguageTypeJapanese);
+        }
+        else if (locale && StringUtils::hasPrefix(locale, "zh")) {
+            m_translator.setLanguage(ITranslator::kLanguageTypeChineseSimplified);
+        }
+        else {
+            m_translator.setLanguage(ITranslator::kLanguageTypeEnglish);
+        }
     }
     m_applicationPtr->setTranslator(&m_translator);
     Inline::clearZeroMemory(m_queryFileDialogCallbacks);

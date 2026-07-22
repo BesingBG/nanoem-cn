@@ -1,96 +1,78 @@
-# nanoem
+# nano-mmd 
 
-[![Build Status](https://github.com/hkrn/nanoem/workflows/CI/badge.svg)](https://github.com/hkrn/nanoem/actions) [![Documentation Status](https://readthedocs.org/projects/nanoem/badge/?version=latest)](https://nanoem.readthedocs.io/ja/latest/?badge=latest) [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-blue.svg)](https://opensource.org/licenses/MPL-2.0) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-blue.svg)](https://opensource.org/licenses/MPL-2.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Windows-lightgrey)
 
-nanoem is an [MMD (MikuMikuDance)](https://sites.google.com/view/vpvp/) compatible implementation and its like application mainly built for macOS.
+**nano-mmd** 是 [nanoem](https://github.com/hkrn/nanoem) 的社区维护中文分支，提供完整的简体中文界面与文档。
 
-- [All Releases](https://github.com/hkrn/nanoem/releases)
-- [Usage Manual](https://nanoem.readthedocs.io) (Japanese)
+nanoem 是一款跨平台的开源 [MMD（MikuMikuDance）](https://sites.google.com/view/vpvp/) 兼容软件，原生支持 macOS，也可运行于 Windows，支持编辑和播放 VMD/PMX/PMD 格式的模型动画。
 
-## Screenshot
+> 🌐 **English**: nanoem-mmd is a community-maintained Chinese fork of [nanoem](https://github.com/hkrn/nanoem), a cross-platform open-source [MMD (MikuMikuDance)](https://sites.google.com/view/vpvp/) compatible application. It features a fully translated Chinese UI and documentation.
 
-![nanoem for macOS](docs/images/application/screen_v340_small.png)
+## 特性
 
-## Background and Design Concept
+| 类别 | 说明 |
+|------|------|
+| 🌏 **简体中文界面** | 1180+ 条 UI 翻译，菜单、对话框、提示信息全汉化 |
+| 📖 **简体中文文档** | 使用手册全文汉化（Sphinx + Read the Docs 主题） |
+| 📂 **内置离线文档** | 软件内直接打开使用手册，无需联网 |
+| 🎨 **中文字体优化** | 内置 Noto Sans SC 字体，中日文字形统一，显示美观 |
+| 🖥️ **Universal Binary** | macOS 版本同时支持 Intel 和 Apple Silicon |
+| 🪟 **Windows 兼容** | 支持 Windows 10+ 运行（DirectX11 / OpenGL） |
+| 🎬 **多格式支持** | VMD 动作、PMX/PMD 模型、PMM 项目文件 |
+| ✏️ **模型编辑** | 类似 PMXEditor 的骨骼、表情、材质编辑功能 |
+| 🎮 **多图形后端** | Metal / DirectX11 / OpenGL |
 
-MikuMikuDance (a.k.a MMD) is created on Windows via DirectX9. As such, it's unavailable to run on non-Windows deployment unless you use a virtual machine or emulation layer such as Wine.
+## 与上游的差异
 
-nanoem was originally created to address the issue of non-Windows compatibility as well as the possibility it may not work in the future due to Windows reason. It was originally designed for macOS but now it's now designed to run on non-macOS as well and supports ARM CPU such as Apple M1 and RaspberryPi, multiple graphics backends (DirectX11/Metal/OpenGL).
+- 简体中文界面与文档翻译
+- 内置离线文档（帮助菜单直接打开本地 HTML）
+- 中文字体替换（Noto Sans SC），移除日文字体回退
+- Windows 子窗口点击修复（进行中）
+- Windows DPI 缩放适配（进行中）
 
-It also has model editing feature similar to PMXEditor's one which allows for some model editing. This was also implemented for the same reason mentioned above.
+## 截图
 
-nanoem is designed to achieve both of the following goals.
+![nano-mmd for macOS](docs/images/application/screen_chinese.png)
 
-* Portability
-* Lightweight startup
-* Small size
+## 下载
 
-## How to build?
+请前往 [Releases](https://github.com/BesingBG/nanoem-mmd/releases) 页面下载最新版本。
 
-### Prerequisites
+## 构建
 
-- [cmake](https://cmake.org) (>= 3.5)
-- C++14 compliant compiler
-  - confirmed on Clang and Visual Studio 2017
+### 前置要求
+
+- [cmake](https://cmake.org)（>= 3.5）
+- C++14 兼容编译器（Clang / Visual Studio 2017+）
 - [git](https://git-scm.com)
-- [ninja-build](https://ninja-build.org/)
-  - Optional but recommend on macOS/Linux
+- [ninja-build](https://ninja-build.org/)（macOS/Linux 推荐）
 
-### Minimum build instruction
-
-See also [GitHub Action Workflow](.github/workflows/main.yml).
+### 构建步骤
 
 ```bash
 git submodule update --init --recursive
 
-# needs setting NANOEM_TARGET_COMPILER explicitly when the compiler is clang (default is gcc on Linux)
+# macOS（Apple Clang）
 export NANOEM_TARGET_COMPILER=clang
 cmake -P scripts/build.cmake
-mkdir out
-cd out
+mkdir out && cd out
 cmake -G Ninja ..
 cmake --build .
-
-# OpenGL 3.3 Core Profile or higher is required to run on Linux
-cd sapp && ./nanoem
 ```
 
-<details>
-<summary>Options Table of scripts/build.cmake</summary>
+详细信息请参考 [GitHub Action Workflow](.github/workflows/main.yml) 或原项目文档。
 
-|Name|Description|
-|---|---|
-|`NANOEM_TARGET_ARCHITECTURES`|Target architectures to build. The default value is `x86_64` (non macOS) or `ub` (means Universal Binary, macOS).|
-|`NANOEM_TARGET_CONFIGURATIONS`|Target configurations for cmake. The default value is `debug;release`.|
-|`NANOEM_TARGET_MACOS_VERSION`|Target macOS version. Same as [CMAKE_OSX_DEPLOYMENT_TARGET](https://cmake.org/cmake/help/latest/variable/CMAKE_OSX_DEPLOYMENT_TARGET.html).|
-|`NANOEM_TARGET_GENERATOR`|Target generator for cmake. The option will pass as `cmake -G ${NANOEM_TARGET_GENERATOR}`|
-|`NANOEM_TARGET_COMPILER`|Target compiler for cmake.|
-|`NANOEM_TARGET_TOOLSET`|Target toolset for cmake. The option will pass as `cmake -T {NANOEM_TARGET_TOOLSET}`|
-|`NANOEM_MAKE_PROGRAM`|Make program to use for cmake. Same as [CMAKE_MAKE_PROGRAM](https://cmake.org/cmake/help/latest/variable/CMAKE_MAKE_PROGRAM.html).|
-|`NANOEM_DISABLE_BUILD_NANOMSG`|Disable building [nanomsg](https://nanomsg.org/).|
-|`NANOEM_DISABLE_BUILD_TBB`|Disable building [Threading Building Blocks](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onetbb.html).|
-|`NANOEM_ENABLE_BUILD_ICU4C`|Enable building [ICU](https://github.com/unicode-org/icu/). You must run following command `git clone https://github.com/unicode-org/icu/ dependencies/icu` before enabling the option.|
-|`NANOEM_ENABLE_BUILD_MIMALLOC`|Enable building [mimalloc](https://github.com/microsoft/mimalloc).|
-|`NANOEM_ENABLE_BUILD_SPIRV_TOOLS`|Enable building [SPIRV-Tools](https://github.com/KhronosGroup/SPIRV-Tools).|
-|`NANOEM_ENABLE_BUILD_SENTRY_NATIVE`|Enable building [Sentry C/C++ SDK](https://github.com/getsentry/sentry-native).|
-|`NANOEM_ENABLE_BUILD_LIBSOUNDIO`|Enable building [libsoundio](http://libsound.io). You must run following command `git clone https://github.com/andrewrk/libsoundio dependencies/libsoundio` before enabling the option.|
-|`NANOEM_ENABLE_BUILD_GLFW`|Enable building [GLTF](https://www.glfw.org). You must run following command `git clone https://github.com/glfw/glfw dependencies/libsoundio` before enabling the option.|
-|`NANOEM_ENABLE_BUILD_FFMPEG`|Enable building [ffmpeg](http://ffmpeg.org). You must run following command `git clone https://github.com/ffmpeg/ffmpeg dependencies/ffmpeg` before enabling the option.|
-|`NANOEM_ENABLE_BUILD_YAMLCPP`|Enable building [yaml-cpp](https://github.com/jbeder/yaml-cpp). You must run following command `git clone https://github.com/jbeder/yaml-cpp dependencies/yaml-cpp` before enabling the option.|
+## 已知问题
 
-</details>
+详见 [KNOWN_ISSUES.md](KNOWN_ISSUES.md)。
 
-## Architecture
+## 许可证
 
-See [Architecture Document](docs/architecture.rst) (Japanese)
+- nanoem 组件： [MIT/X11 License](LICENSE.MIT)
+- emapp / macos / win32 / glfw / sapp 组件：[Mozilla Public License](LICENSE.MPL)
 
-## About License
+## 致谢
 
-- nanoem component is licensed under [MIT/X11 License](LICENSE.MIT).
-- emapp/win32/macos/glfw/sapp components are licensed under [Mozilla Public License](LICENSE.MPL).
-
-## Contributors
-
-<a href="https://github.com/hkrn/nanoem/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=hkrn/nanoem" />
-</a>
+感谢 [hkrn](https://github.com/hkrn) 创建并维护了优秀的 nanoem 项目。

@@ -129,6 +129,8 @@ PreferenceDialog::draw(Project *project)
                         ImGui::Selectable(selectedLanguageString(type), type == language, flags)) {
                         project->setLanguage(type);
                         translator->setLanguage(type);
+                        ApplicationPreference preference(application());
+                        preference.setLanguage(type);
                     }
                 }
                 ImGui::EndCombo();
@@ -220,11 +222,11 @@ PreferenceDialog::draw(Project *project)
             ImGui::PopItemWidth();
             ImGui::EndTabItem();
         }
-        if (ImGui::BeginTabItem("Special")) {
+        if (ImGui::BeginTabItem(tr("nanoem.gui.window.preference.tab.special"))) {
             ImGui::PushItemWidth(-1);
             ApplicationPreference preference(application());
-            ImGui::TextUnformatted("Application Preference");
-            if (ImGui::Button("Initialize##preferences.reset", ImVec2(-1, 0))) {
+            ImGui::TextUnformatted(tr("nanoem.gui.window.preference.special.application-preference"));
+            if (ImGui::Button(tr("nanoem.gui.window.preference.special.initialize"), ImVec2(-1, 0))) {
                 preference.setUndoSoftLimit(ApplicationPreference::kUndoSoftLimitDefaultValue);
                 preference.setGFXBufferPoolSize(ApplicationPreference::kGFXBufferPoolSizeDefaultValue);
                 preference.setGFXImagePoolSize(ApplicationPreference::kGFXImagePoolSizeDefaultValue);
@@ -236,7 +238,7 @@ PreferenceDialog::draw(Project *project)
             addSeparator();
             {
                 int value = preference.undoSoftLimit();
-                ImGui::TextUnformatted("Undo Soft Limit");
+                ImGui::TextUnformatted(tr("nanoem.gui.window.preference.special.undo-soft-limit"));
                 if (ImGui::DragInt("##preference.undo", &value, 1.0f, 64, undoStackGetHardLimit())) {
                     preference.setUndoSoftLimit(value);
                 }
@@ -244,42 +246,42 @@ PreferenceDialog::draw(Project *project)
             addSeparator();
             {
                 int value = preference.gfxBufferPoolSize();
-                ImGui::TextUnformatted("Buffer Pool Size");
+                ImGui::TextUnformatted(tr("nanoem.gui.window.preference.special.buffer-pool-size"));
                 if (ImGui::DragInt("##preference.gfx.pool.buffer", &value, 1.0f, 1024, 0xffff)) {
                     preference.setGFXBufferPoolSize(value);
                 }
             }
             {
                 int value = preference.gfxImagePoolSize();
-                ImGui::TextUnformatted("Image Pool Size");
+                ImGui::TextUnformatted(tr("nanoem.gui.window.preference.special.image-pool-size"));
                 if (ImGui::DragInt("##preference.gfx.pool.image", &value, 1.0f, 2048, 0xffff)) {
                     preference.setGFXImagePoolSize(value);
                 }
             }
             {
                 int value = preference.gfxShaderPoolSize();
-                ImGui::TextUnformatted("Shader Pool Size");
+                ImGui::TextUnformatted(tr("nanoem.gui.window.preference.special.shader-pool-size"));
                 if (ImGui::DragInt("##preference.gfx.pool.shader", &value, 1.0f, 1024, 0xffff)) {
                     preference.setGFXShaderPoolSize(value);
                 }
             }
             {
                 int value = preference.gfxPassPoolSize();
-                ImGui::TextUnformatted("Pass Pool Size");
+                ImGui::TextUnformatted(tr("nanoem.gui.window.preference.special.pass-pool-size"));
                 if (ImGui::DragInt("##preference.gfx.pool.pass", &value, 1.0f, 512, 0xffff)) {
                     preference.setGFXPassPoolSize(value);
                 }
             }
             {
                 int value = preference.gfxPipelinePoolSize();
-                ImGui::TextUnformatted("Pipeline Pool Size");
+                ImGui::TextUnformatted(tr("nanoem.gui.window.preference.special.pipeline-pool-size"));
                 if (ImGui::DragInt("##preference.gfx.pool.pipeline", &value, 1.0f, 1024, 0xffff)) {
                     preference.setGFXPipelinePoolSize(value);
                 }
             }
             {
                 int value = preference.gfxUniformBufferSize();
-                ImGui::TextUnformatted("Uniform Buffer Size");
+                ImGui::TextUnformatted(tr("nanoem.gui.window.preference.special.uniform-buffer-size"));
                 if (ImGui::DragInt("##preference.gfx.buffer.uniform", &value, 1.0f, 0x10000, 0x7fffff)) {
                     preference.setGFXUniformBufferSize(value);
                 }
@@ -351,6 +353,8 @@ PreferenceDialog::selectedLanguageString(ITranslator::LanguageType value) const 
         return translator->translate("nanoem.gui.window.preference.project.language.english");
     case ITranslator::kLanguageTypeJapanese:
         return translator->translate("nanoem.gui.window.preference.project.language.japanese");
+    case ITranslator::kLanguageTypeChineseSimplified:
+        return translator->translate("nanoem.gui.window.preference.project.language.simplified-chinese");
     default:
         return "(Unknown)";
     }

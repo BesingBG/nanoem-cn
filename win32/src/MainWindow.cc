@@ -1985,10 +1985,12 @@ MainWindow::handleMenuItem(HWND hwnd, ApplicationMenuBuilder::MenuItemType menuT
         break;
     }
     case ApplicationMenuBuilder::kMenuItemTypeHelpOnline: {
-        char buffer[128];
-        StringUtils::format(buffer, sizeof(buffer),
-            "https://nanoem.readthedocs.io/?utm_source=nanoem-%s&utm_medium=referral", nanoemGetVersionString());
-        ShellExecuteA(nullptr, nullptr, buffer, nullptr, nullptr, SW_SHOW);
+        char path[MAX_PATH];
+        GetModuleFileNameA(nullptr, path, MAX_PATH);
+        char *p = strrchr(path, '\\');
+        if (p) *p = '\0';
+        strcat_s(path, "\\docs\\index.html");
+        ShellExecuteA(nullptr, nullptr, path, nullptr, nullptr, SW_SHOW);
         break;
     }
     default:
