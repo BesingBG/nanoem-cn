@@ -54,6 +54,7 @@ nanoem 是一款跨平台的开源 [MMD（MikuMikuDance）](https://sites.google
 - C++14 兼容编译器（Clang / Visual Studio 2017+）
 - [git](https://git-scm.com)
 - [ninja-build](https://ninja-build.org/)（macOS/Linux 推荐）
+- **Windows**: Windows 10 22H2+（build 19045，实测可用）。更早版本可能存在鼠标交互问题，详见 [KNOWN_ISSUES.md](KNOWN_ISSUES.md)。
 
 ### 构建步骤
 
