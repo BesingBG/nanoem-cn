@@ -29,7 +29,7 @@ author = 'hkrn'
 version = '@NANOEM_VERSION@'
 release = '@NANOEM_VERSION_GIT@'
 
-language = 'ja'
+language = 'zh_CN'
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.venv']
 pygments_style = 'sphinx'
 todo_include_todos = False
