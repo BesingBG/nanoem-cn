@@ -1,6 +1,7 @@
 # build artifact
 /compile_commands.json
 /**/out
+_CPack_Packages/
 
 # Visual Studio
 /build/

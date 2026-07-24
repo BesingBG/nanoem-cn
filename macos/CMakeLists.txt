@@ -162,6 +162,12 @@ install(CODE "
   set(app_path \"\${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}.app\")
   file(GLOB_RECURSE installed_plugins \"\${app_path}/Contents/PlugIns/*${CMAKE_SHARED_LIBRARY_SUFFIX}\")
   fixup_bundle(\"\${app_path}\" \"\${installed_plugins}\" \"${LIBRARY_PATHS}\")
+  # re-sign the app bundle with ad-hoc signature after fixup_bundle modifies binaries
+  message(STATUS \"Re-signing the app bundle with ad-hoc signature...\")
+  execute_process(COMMAND codesign --force --deep --sign - \"\${app_path}\")
+  foreach(item \${installed_plugins})
+    execute_process(COMMAND codesign --force --sign - \"\${item}\")
+  endforeach()
   # generate debug info
   set(NANOEM_ENABLE_SENTRY_SDK ${NANOEM_ENABLE_SENTRY_SDK})
   if(NANOEM_ENABLE_SENTRY_SDK AND NOT EXISTS ${CMAKE_CURRENT_BINARY_DIR}/sentry.touch)
