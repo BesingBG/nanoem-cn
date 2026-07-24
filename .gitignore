@@ -2,6 +2,20 @@
 /compile_commands.json
 /**/out
 
+# Visual Studio
+/build/
+*.user
+*.suo
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.opendb
+*.vcxproj.user
+*.vcxproj.filters
+
+# Python embeddable
+/_python/
+
 # document
 /docs/_build
 /docs/_static

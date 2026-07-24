@@ -12,6 +12,8 @@
 #include <VersionHelpers.h>
 #include <windowsx.h>
 
+#define IDI_NANOEM 100
+
 /* IDXGIFactory6 */
 #include <dxgi1_6.h>
 #if defined(SOKOL_DEBUG) && SOKOL_DEBUG
@@ -88,10 +90,10 @@ MainWindow::MainWindow(const bx::CommandLine *cmd, const Preference *preference,
     windowClass.style = CS_HREDRAW | CS_VREDRAW;
     windowClass.lpfnWndProc = &handleWindowProc;
     windowClass.hInstance = hInstance;
-    windowClass.hIcon = LoadIconW(nullptr, IDI_APPLICATION);
+    windowClass.hIcon = LoadIconW(hInstance, MAKEINTRESOURCEW(IDI_NANOEM));
     windowClass.hCursor = LoadCursorW(nullptr, IDC_ARROW);
     windowClass.lpszClassName = Win32ThreadedApplicationService::kRegisterClassName;
-    windowClass.hIconSm = LoadIconW(nullptr, IDI_APPLICATION);
+    windowClass.hIconSm = LoadIconW(hInstance, MAKEINTRESOURCEW(IDI_NANOEM));
     if (RegisterClassExW(&windowClass) != 0) {
         static ACCEL accelerators[] = { { FVIRTKEY | FCONTROL, 'N',
                                             ApplicationMenuBuilder::kMenuItemTypeFileNewProject },

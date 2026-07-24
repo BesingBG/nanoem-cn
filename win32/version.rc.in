@@ -4,6 +4,10 @@
  */
 
 #pragma once
+
+#define IDI_NANOEM 100
+IDI_NANOEM ICON "nanoem.ico"
+
 #define VER_COMPANYNAME_STR "nanoem"
 #define VER_COPYRIGHT_STR "Copyright 2015-2023 hkrn All Rights Reserved."
 #define VER_FILEVERSION @NANOEM_WIN32_VERSION_MAJOR@,@NANOEM_WIN32_VERSION_MINOR@,0,0
