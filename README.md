@@ -79,6 +79,9 @@ cmake --build .
 
 QQ交流群：1077765705
 
+<img width="321" height="572" alt="qrcode_1784947914226" src="https://github.com/user-attachments/assets/d41e6883-7fad-441f-9a43-512baff60805" />
+
+
 ## 许可证
 
 - nanoem 组件： [MIT/X11 License](LICENSE.MIT)
