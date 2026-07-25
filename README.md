@@ -75,6 +75,10 @@ cmake --build .
 
 详见 [KNOWN_ISSUES.md](KNOWN_ISSUES.md)。
 
+## 交流群
+
+QQ交流群：1077765705
+
 ## 许可证
 
 - nanoem 组件： [MIT/X11 License](LICENSE.MIT)
